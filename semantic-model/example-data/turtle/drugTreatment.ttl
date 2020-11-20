@@ -1,0 +1,30 @@
+@prefix : <http://purl.org/ddp/cde/v010/example-rdf/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+
+
+# An example rdf of drug treatment
+
+:person_ a sio:SIO_000498 ;
+   sio:SIO_000228 :person_role_ .
+   
+:drug_product_ a obo:DRON_00067575 ;
+   sio:SIO_000228 :drug_product_role_ ;
+   sio:SIO_000008 obo:DRON_00000005 ;
+   obo:RO_0002248 :active_chemical_entity_ .
+   
+:person_role_ a obo:OBI_0000093 ;
+   sio:SIO_000356 :drug_exposure_process_ .
+   
+:drug_product_role_ a obo:CHEBI_23888 ;
+   sio:SIO_000356 :drug_exposure_process_ .
+   
+:drug_exposure_process_ a obo:ECTO_0000509 .
+
+:drug_ingredient_ a obo:CHEBI_8382 ;
+   sio:SIO_000008 obo:CHEBI_24431 ;
+   sio:SIO_000313 :drug_product_ .
+   
+:active_chemical_entity_ a obo:CHEBI_8378 ;
+   sio:SIO_000008 sio:SIO_010038 ;
+   sio:SIO_000244 :drug_ingredient_ .
